@@ -20,6 +20,7 @@
 
 namespace App\Telegram\Commands;
 
+use App\Telegram\Commands\Modules\Product;
 use Longman\TelegramBot\Commands\SystemCommand;
 use Longman\TelegramBot\Entities\ServerResponse;
 use PhpTelegramBot\FluentKeyboard\ReplyKeyboard\KeyboardButton;
@@ -57,6 +58,7 @@ class GenericmessageCommand extends SystemCommand
          * Handle any kind of message here
          */
 
+
         $message_text = $message->getText(true);
         if ($message_text == '🆔اطلاعات شما')
         {
@@ -67,7 +69,7 @@ class GenericmessageCommand extends SystemCommand
 ◀️تعداد دلار خریداری شده :
 0.0 دلار");
         }
-        if ($message_text == '📳 پشتیبانی')
+        if ($message_text == 'پشتیبانی')
         {
             return $this->replyToChat("👩‍💼 پیام خود را برای پشتیبانی ارسال فرمایید
 
@@ -77,7 +79,42 @@ class GenericmessageCommand extends SystemCommand
 
 ✅ ساعت پاسخگویی 10 صبح تا 11 شب");
         }
-        if ($message_text == '📶خدمات دلار')
+        if ($message_text == 'آموزش')
+        {
+            return $this->replyToChat("👩‍💼 پیام خود را برای پشتیبانی ارسال فرمایید
+
+❌برای پاسخ به جواب ما باید روی پشتیبانی کلیک کنید!
+
+📞زمان پاسخگویی بین 0 تا 24 ساعت میباشد
+
+✅ ساعت پاسخگویی 10 صبح تا 11 شب");
+        }
+        if ($message_text == 'کیف پول')
+        {
+            return $this->replyToChat("👩‍💼 پیام خود را برای پشتیبانی ارسال فرمایید
+
+❌برای پاسخ به جواب ما باید روی پشتیبانی کلیک کنید!
+
+📞زمان پاسخگویی بین 0 تا 24 ساعت میباشد
+
+✅ ساعت پاسخگویی 10 صبح تا 11 شب");
+        }
+        if ($message_text == 'تراکنش ها')
+        {
+            return $this->replyToChat("👩‍💼 پیام خود را برای پشتیبانی ارسال فرمایید
+
+❌برای پاسخ به جواب ما باید روی پشتیبانی کلیک کنید!
+
+📞زمان پاسخگویی بین 0 تا 24 ساعت میباشد
+
+✅ ساعت پاسخگویی 10 صبح تا 11 شب");
+        }
+        if ($message_text == 'محصولات')
+        {
+            $step1=(new Product())->step1();
+            return $this->replyToChat($step1->text, ['reply_markup' =>$step1->reply_markup]);
+        }
+        if ($message_text == 'سفارشات')
         {
             return $this->replyToChat('👮‍♀به خدمات دلار خوش امدید
 

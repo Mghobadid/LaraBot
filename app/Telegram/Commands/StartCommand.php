@@ -7,6 +7,7 @@ namespace App\Telegram\Commands;
 use Longman\TelegramBot\Commands\UserCommand;
 use Longman\TelegramBot\Entities\Keyboard;
 use Longman\TelegramBot\Entities\ServerResponse;
+use Longman\TelegramBot\Entities\WebAppData;
 
 class StartCommand extends UserCommand
 {
@@ -24,10 +25,10 @@ class StartCommand extends UserCommand
     {
 
         $keyboard = new Keyboard(
-            ['🆔اطلاعات شما', '📳 پشتیبانی','📶خدمات دلار'],
-            ['4', '5', ],
-            ['1', '2',],
-            [' ', '0', ' ']
+            ['🆔اطلاعات شما', ['text' => 'وب سایت 🌐', 'web_app' => new WebAppData(['url'=>'https://framework7.io/kitchen-sink/core/?theme=md&safe-areas=true'])]],
+            ['پشتیبانی', 'آموزش'],
+            ['کیف پول', 'تراکنش ها',],
+            ['محصولات', 'سفارشات']
         );
 
         $keyboard->setResizeKeyboard(true)

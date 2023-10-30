@@ -57,6 +57,7 @@ class InlinekeyboardCommand extends UserCommand
         $inline_keyboard = new InlineKeyboard([
             ['text' => 'Inline Query (current chat)', 'switch_inline_query_current_chat' => 'inline query...'],
             ['text' => 'Inline Query (other chat)', 'switch_inline_query' => 'inline query...'],
+            ['text' => 'Inline Query (other chat)', 'switch_inline_query' => 'inline query...'],
         ], [
             ['text' => 'Callback', 'callback_data' => 'identifier'],
             ['text' => 'Open URL', 'url' => 'https://github.com/php-telegram-bot/example-bot'],
